@@ -1,61 +1,187 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detachment 842</title>
     <style>
-        body{
-            background-color: #06233f; /* Dark blue background */
+        body {
+            background-color: #06233f;
             color: white;
+            font-family: Arial, sans-serif;
         }
+
         h1 {
             font-size: 300%;
             text-align: center;
-            color: #E27D3C; /* Burnt orange color */
+            color: #E27D3C;
         }
-        h2{
+
+        h2 {
             text-align: center;
             font-size: 150%;
         }
-        .box {
-            width: 300px;            /* Set width */
-            height: 200px;           /* Set height */
-            background-color: transparent; /* Make inside transparent */
-            color: white;            /* Text color white */
-            padding: 20px;           /* Padding inside the box */
-            box-sizing: border-box;  /* Include padding/border in width/height calculation */
-            
-            /* Double-lined border effect */
-            border: 6px double #E27D3C; /* Outer double border with red color */
+
+        /* Layout container */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
         }
-        a{
+
+        /* Left column: Tasks */
+        .tasksbox {
+            width: 25%;
+            background-color: transparent;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 6px double #E27D3C;
+        }
+
+        .tasks {
             color: #89e0f6;
+            text-decoration: none;
         }
 
-</style>
+        .tasks:hover {
+            text-decoration: underline;
+        }
+
+        /* Right column: Empty div + Resources */
+        .right-column {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Empty div */
+        .empty {
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px dashed #E27D3C;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Resources section with border */
+        .resources-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+            border: 6px double #E27D3C;
+        }
+
+        /* Card container (keeps them in a row) */
+        .card-container {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        /* Individual cards (default vertical) */
+        .card {
+            width: 50px;
+            height: 200px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.5s ease-in-out;
+            background: transparent;
+            border: 2px solid #ff5a91;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* Text inside cards (rotated by default) */
+        .card span {
+            transform: rotate(-90deg);
+            transition: all 0.5s ease-in-out;
+            color: #ff568e;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Hover Effect - Expands ONLY the hovered card */
+        .card:hover {
+            width: 200px;
+            height: 50px;
+        }
+
+        /* Rotates text back to normal on hover */
+        .card:hover span {
+            transform: rotate(0);
+        }
+
+        /* Links inside resources */
+        .card a {
+            color: #ff568e;
+            text-decoration: none;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
 </head>
-<script>
-
-
-</script>
 <body>
-    <h1> Detachment 842</h1>
-    <div class="box">
-        <h2> Tasks </h2>
-        <li>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScFGrlJernWmn8TfPwBfb1c001pcjKqGZkogi9IZZ0-JTDkLA/viewform?usp=sharing"> Absence Form </a>
-        </li>
-        <li>
-            <a href="https://forms.gle/TjWPCrFE2FBQtByd8"> IG Submission Form </a>
-        </li>
-        <li>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeklNKJr0BBLSnsDw-1hQeNVtLzF0tNGez4zorfLNFYfTuTdg/viewform"> LRS Form </a>
-        </li>
-        <li>
-            <a href="https://forms.gle/3F2C6XepoppXzGqh6"> Deltas 2-5 Third PT Form </a>
-        </li>
-        <li>
-            <a href="https://forms.gle/KSQBmDn3EYbjZkPm9"> Mental Health Check </a>
-        </li>
-    </div>
+    <h1>Detachment 842</h1>
 
-    
- 
+    <div class="container">
+        <!-- Left Column (Tasks) -->
+        <div class="tasksbox">
+            <h2>Tasks</h2>
+            <ul>
+                <li><a class="tasks" href="https://docs.google.com/forms/d/e/1FAIpQLScFGrlJernWmn8TfPwBfb1c001pcjKqGZkogi9IZZ0-JTDkLA/viewform?usp=sharing">Absence Form</a></li>
+                <li><a class="tasks" href="https://forms.gle/TjWPCrFE2FBQtByd8">IG Submission Form</a></li>
+                <li><a class="tasks" href="https://docs.google.com/forms/d/e/1FAIpQLSeklNKJr0BBLSnsDw-1hQeNVtLzF0tNGez4zorfLNFYfTuTdg/viewform">LRS Form</a></li>
+                <li><a class="tasks" href="https://forms.gle/3F2C6XepoppXzGqh6">Deltas 2-5 Third PT Form</a></li>
+                <li><a class="tasks" href="https://forms.gle/KSQBmDn3EYbjZkPm9">Mental Health Check</a></li>
+            </ul>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <div class="empty">
+                <h2>To Be Created Later</h2>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="resources-box">
+                <h2>Resources</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <span>
+                            <a href="https://drive.google.com/drive/folders/1KeAfomDUytdoyVec5zvCFwgwBsNq4lWe">
+                                Warrior Knowledge
+                            </a>
+                        </span>
+                    </div>
+                    <div class="card">
+                        <span>
+                            <a href="https://det842.slack.com/archives/C087TCPQ1PY/p1740618327090409?thread_ts=1740617691.105129&cid=C087TCPQ1PY">
+                                Org Chart
+                            </a></span>
+                    </div>
+                    <div class="card">
+                        <span>
+                            <a href="https://drive.google.com/file/d/1glvzrc_lyiqec2LkVYNAHn0FfAGa78-i/view?usp=drivesdk">
+                                Cadet HandBook
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+</html>
