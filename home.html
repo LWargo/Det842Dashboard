@@ -5,131 +5,291 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detachment 842</title>
     <style>
-        body {
-            background-color: #06233f;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
+body {
+    background-color: #06233f;
+    color: white;
+    font-family: Arial, sans-serif;
+}
 
-        h1 {
-            font-size: 300%;
-            text-align: center;
-            color: #E27D3C;
-        }
+h1 {
+    font-size: 300%;
+    text-align: center;
+    color: #E27D3C;
+}
 
-        h2 {
-            text-align: center;
-            font-size: 150%;
-        }
+h2 {
+    text-align: center;
+    font-size: 150%;
+}
 
-        /* Layout container */
-        .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
-        }
+/* Layout container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
 
-        /* Left column: Tasks */
-        .tasksbox {
-            width: 25%;
-            background-color: transparent;
-            color: white;
-            padding: 20px;
-            box-sizing: border-box;
-            border: 6px double #E27D3C;
-        }
+/* Left column */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* space between the two boxes */
+    width: 25%;
+}
 
-        .tasks {
-            color: #89e0f6;
-            text-decoration: none;
-        }
+/* Tasks Box - Updated with light orange background */
+.tasksbox {
+    background-color: transparent; /* Light orange background */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 6px double #E27D3C;
+}
+.tasks{
+    color: #a3e3f3;
+}
 
-        .tasks:hover {
-            text-decoration: underline;
-        }
+/* Progress Box */
+.progressbox {
+    align-content: center;
+    background-color: transparent;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 6px double #E27D3C;
+}
 
-        /* Right column: Empty div + Resources */
-        .right-column {
-            width: 70%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+.progressbox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;  /* This centers the progress circles horizontally */
+    justify-content: center; /* This centers the progress circles vertically */
+    padding: 20px;
+    box-sizing: border-box;
+    border: 6px double #E27D3C;
+}
 
-        /* Empty div */
-        .empty {
-            height: 200px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 2px dashed #E27D3C;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+/* Right column */
+.right-column {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 
-        /* Resources section with border */
-        .resources-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            padding: 20px;
-            border: 6px double #E27D3C;
-        }
+/* Empty div */
+.empty {
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px dashed #E27D3C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        /* Card container (keeps them in a row) */
-        .card-container {
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-            justify-content: center;
-        }
+/* Resources section with border */
+.resources-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border: 6px double #E27D3C;
+}
 
-        /* Individual cards (default vertical) */
-        .card {
-            width: 50px;
-            height: 200px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.5s ease-in-out;
-            background: transparent;
-            border: 2px solid #ff5a91;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            overflow: hidden;
-        }
+/* Card container (keeps them in a row) */
+.card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+}
 
-        /* Text inside cards (rotated by default) */
-        .card span {
-            transform: rotate(-90deg);
-            transition: all 0.5s ease-in-out;
-            color: #ff568e;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
+/* From Uiverse.io by kamehame-ha */ 
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 15px;
+    width: 100%;
+}
 
-        /* Hover Effect - Expands ONLY the hovered card */
-        .card:hover {
-            width: 200px;
-            height: 50px;
-        }
+.cards .red {
+  background-color: #f43f5e;
+}
 
-        /* Rotates text back to normal on hover */
-        .card:hover span {
-            transform: rotate(0);
-        }
+.cards .blue {
+  background-color: #3b82f6;
+}
 
-        /* Links inside resources */
-        .card a {
-            color: #ff568e;
-            text-decoration: none;
-        }
+.cards .green {
+  background-color: #22c55e;
+}
+.cards .four {
+  background-color: #a049e7;
+}
 
-        .card a:hover {
-            text-decoration: underline;
-        }
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100px;
+  width: 250px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+/* Ensure all links inside the cards are properly centered */
+.r_tip {
+    font-size: 1em;
+    font-weight: 700;
+    color: white;
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Makes sure it fills the card */
+    width: 100%; /* Ensures full width */
+    text-align: center; /* Just in case */
+}
+
+
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+/* Progress bar */
+progress[value] {
+    --color:  /* the progress color */
+        /* if < 30% "red" */
+        linear-gradient(red    0 0) 0 /calc(var(--w)*.3 - 100%) 1px,
+        /* if < 60% "orange" */
+        linear-gradient(orange 0 0) 0 /calc(var(--w)*.6 - 100%) 1px,
+        /* else "green" */
+        green;
+    --background: lightgrey; /* the background color */
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--background);
+    transform: rotate(-90deg);
+    -webkit-mask: radial-gradient(#0000 59%,#000 60% 70%,#0000 71%);
+}
+
+progress[value]::-webkit-progress-bar {
+    background: var(--background);
+}
+
+progress[value]::-webkit-progress-value {
+    background: var(--color);
+}
+
+progress[value]::-moz-progress-bar {
+    background: var(--color);
+}
+
+label {
+    --w: 150px; /* the width */
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block; /* Change from inline-grid to inline-block for better text wrapping */
+    place-content: center;
+    width: var(--w);
+    aspect-ratio: 1; /* Ensures the height is the same as the width */
+    position: relative;
+    overflow-wrap: break-word; /* Allows long words to break and wrap onto the next line */
+    word-wrap: break-word; /* For older support */
+    white-space: normal; /* Allow normal wrapping */
+    text-align: center; /* Centers text horizontally */
+    line-height: 1.2; /* Adjust line height if necessary for better vertical alignment */
+    background-color: transparent; /* Removed the square orange background */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Tooltip Style */
+.item-hints .hint {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-hints .hint .hint-content {
+    width: 180px;  /* Width of the tooltip */
+    position: absolute;
+    z-index: 5;
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    color: #fff;
+    background-color: #D64D1E;  /* Burnt orange color */
+    border-radius: 5px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    text-align: center;
+    top: 50%;
+    left: 100%; /* Positions the tooltip to the right of the label */
+    margin-left: 10px;
+    transform: translateY(-50%);
+}
+
+.item-hints .hint:hover .hint-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.item-hints .hint .hint-content::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 5px 5px 5px 0;
+    border-color: transparent #D64D1E transparent transparent; /* Arrow pointing towards the label */
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    transform: translateY(-50%);
+}
+
+
+
 
     </style>
 </head>
@@ -137,16 +297,53 @@
     <h1>Detachment 842</h1>
 
     <div class="container">
-        <!-- Left Column (Tasks) -->
-        <div class="tasksbox">
-            <h2>Tasks</h2>
-            <ul>
-                <li><a class="tasks" href="https://docs.google.com/forms/d/e/1FAIpQLScFGrlJernWmn8TfPwBfb1c001pcjKqGZkogi9IZZ0-JTDkLA/viewform?usp=sharing">Absence Form</a></li>
-                <li><a class="tasks" href="https://forms.gle/TjWPCrFE2FBQtByd8">IG Submission Form</a></li>
-                <li><a class="tasks" href="https://docs.google.com/forms/d/e/1FAIpQLSeklNKJr0BBLSnsDw-1hQeNVtLzF0tNGez4zorfLNFYfTuTdg/viewform">LRS Form</a></li>
-                <li><a class="tasks" href="https://forms.gle/3F2C6XepoppXzGqh6">Deltas 2-5 Third PT Form</a></li>
-                <li><a class="tasks" href="https://forms.gle/KSQBmDn3EYbjZkPm9">Mental Health Check</a></li>
-            </ul>
+        <!-- Left Column (Tasks and Progress) -->
+        <div class="left-column">
+            <!-- Tasks Box -->
+            <div class="tasksbox">
+                <h2>Tasks</h2>
+                <ul>
+                    <li><a class="tasks" href="https://docs.google.com/forms/d/e/1FAIpQLScFGrlJernWmn8TfPwBfb1c001pcjKqGZkogi9IZZ0-JTDkLA/viewform?usp=sharing">Absence Form</a></li>
+                    <li><a class="tasks" href="https://forms.gle/TjWPCrFE2FBQtByd8">IG Submission Form</a></li>
+                    <li><a class="tasks" href="https://docs.google.com/forms/d/e/1FAIpQLSeklNKJr0BBLSnsDw-1hQeNVtLzF0tNGez4zorfLNFYfTuTdg/viewform">LRS Form</a></li>
+                    <li><a class="tasks" href="https://forms.gle/3F2C6XepoppXzGqh6">Deltas 2-5 Third PT Form</a></li>
+                    <li><a class="tasks" href="https://forms.gle/KSQBmDn3EYbjZkPm9">Mental Health Check</a></li>
+                </ul>
+            </div>
+
+            <!-- Progress Box -->
+            <div class="progressbox">
+                <h2> Wing Goals</h2>
+                
+                <!-- From Uiverse.io by vnuny --> 
+                <div class="item-hints">
+                    <div class="hint" data-position="4">
+                    <span class="hint-radius"></span>
+                    <label> Army Joint Events <progress max="100" value="5"></progress></label>
+                        <div class="hint-content do--split-children">
+                            <p>Conduct 3 joint-training exercises with Army ROTC</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-hints">
+                    <div class="hint" data-position="4">
+                    <span class="hint-radius"></span>
+                    <label> PT Scores <progress max="100" value="5"></progress></label>
+                        <div class="hint-content do--split-children">
+                            <p>Cadet Wing averages at least a 93 on PFA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-hints">
+                    <div class="hint" data-position="4">
+                    <span class="hint-radius"></span>
+                    <label> ODT Applications <progress max="100" value="5"></progress></label>
+                        <div class="hint-content do--split-children">
+                            <p>75% of Cadet Wing attends a base visit; 50% apply for an ODT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Right Column -->
@@ -159,27 +356,39 @@
             <div class="resources-box">
                 <h2>Resources</h2>
                 <div class="card-container">
-                    <div class="card">
-                        <span>
-                            <a href="https://drive.google.com/drive/folders/1KeAfomDUytdoyVec5zvCFwgwBsNq4lWe">
+                    <!-- From Uiverse.io by kamehame-ha --> 
+                <div class="cards">
+                    <div class="card red">
+                            <a class="r_tip" href="https://drive.google.com/drive/folders/1KeAfomDUytdoyVec5zvCFwgwBsNq4lWe">
                                 Warrior Knowledge
                             </a>
-                        </span>
                     </div>
-                    <div class="card">
-                        <span>
-                            <a href="https://det842.slack.com/archives/C087TCPQ1PY/p1740618327090409?thread_ts=1740617691.105129&cid=C087TCPQ1PY">
+                    <div class="card blue">
+                        <br>
+                        <br>
+                            <a class="r_tip" href="https://det842.slack.com/archives/C087TCPQ1PY/p1740618327090409?thread_ts=1740617691.105129&cid=C087TCPQ1PY">
                                 Org Chart
-                            </a></span>
-                    </div>
-                    <div class="card">
-                        <span>
-                            <a href="https://drive.google.com/file/d/1glvzrc_lyiqec2LkVYNAHn0FfAGa78-i/view?usp=drivesdk">
-                                Cadet HandBook
                             </a>
-                        </span>
+                        </p>
+                    </div>
+                    <div class="card green"> 
+                        <br>
+                        <br>                   
+                            <a class="r_tip" href="https://drive.google.com/file/d/1glvzrc_lyiqec2LkVYNAHn0FfAGa78-i/view?usp=drivesdk">
+                            Cadet HandBook
+                        </a></p>
+                    </div>
+                    <div class="card four"> 
+                        <br>
+                        <br>                   
+                            <a class="r_tip" href="https://static.e-publishing.af.mil/production/1/af_a1/publication/dafi36-2903/dafi36-2903.pdf">
+                            DAFI 36-2903
+                        </a></p>
                     </div>
                 </div>
+                   
+                </div>
+                
             </div>
         </div>
     </div>
