@@ -512,7 +512,8 @@ input[type="radio"]:nth-child(5):checked ~ .carousel-nav label:nth-child(5) {
                     <li><a class="tasks" href="https://forms.gle/KSQBmDn3EYbjZkPm9">Mental Health Check</a></li>
                 </ul>
             </div>
-
+           
+            
             <!-- Progress Box -->
             <div class="progressbox">
                 <h2> Wing Goals</h2>
@@ -530,7 +531,7 @@ input[type="radio"]:nth-child(5):checked ~ .carousel-nav label:nth-child(5) {
                 <div class="item-hints">
                     <div class="hint" data-position="4">
                     <span class="hint-radius"></span>
-                    <label> PT Scores <progress max="100" value="5"></progress></label>
+                    <label> PT Scores <progress max="100" value="55"></progress></label>
                         <div class="hint-content do--split-children">
                             <p>Cadet Wing averages at least a 93 on PFA</p>
                         </div>
@@ -539,13 +540,14 @@ input[type="radio"]:nth-child(5):checked ~ .carousel-nav label:nth-child(5) {
                 <div class="item-hints">
                     <div class="hint" data-position="4">
                     <span class="hint-radius"></span>
-                    <label> ODT Applications <progress max="100" value="5"></progress></label>
+                    <label> ODT Applications <progress max="100" value="35"></progress></label>
                         <div class="hint-content do--split-children">
                             <p>75% of Cadet Wing attends a base visit; 50% apply for an ODT</p>
                         </div>
                     </div>
                 </div>
             </div>
+            
         </div>
 
         <!-- Right Column -->
@@ -573,7 +575,7 @@ input[type="radio"]:nth-child(5):checked ~ .carousel-nav label:nth-child(5) {
                                             EVENT: Battle of the Bomb
                                             <br>
                                             <br>
-                                            DATE: Saturday, 28 March 2025
+                                            DATE: Saturday, 29 March 2025
                                             <br>
                                             <br>
                                             LOCATION: University of North Texas
@@ -757,6 +759,27 @@ function prevSlide() {
     }
 }
 
+
+    function updateProgressBarColor(progressElement) {
+        const value = progressElement.value;
+        const max = progressElement.max;
+        const percentage = (value / max) * 100;
+
+        // Set the progress color based on the value
+        if (percentage < 30) {
+            progressElement.style.setProperty('--color', 'red');
+        } else if (percentage < 60) {
+            progressElement.style.setProperty('--color', 'orange');
+        } else {
+            progressElement.style.setProperty('--color', 'green');
+        }
+    }
+
+    // Call the function for each progress bar on page load or on value change
+    document.querySelectorAll('progress').forEach(progress => {
+        updateProgressBarColor(progress); // Initially set color
+        progress.addEventListener('input', () => updateProgressBarColor(progress)); // Update on user input
+    });
 </script>
 
 
