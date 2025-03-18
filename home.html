@@ -120,19 +120,19 @@ h2 {
 }
 
 
-.cards .red {
-  background-color: #f43f5e;
+.cards .drill {
+  background-color: #a89ea0;
 }
 
-.cards .blue {
-  background-color: #3b82f6;
+.cards .fitness {
+  background-color: #6bd7e5;
 }
 
-.cards .green {
-  background-color: #22c55e;
+.cards .det {
+  background-color: #3380d4;
 }
-.cards .four {
-  background-color: #a049e7;
+.cards .other {
+  background-color: #f4a97d;
 }
 
 .cards .card {
@@ -492,6 +492,37 @@ input[type="radio"]:nth-child(5):checked ~ .carousel-nav label:nth-child(5) {
     opacity: 1;
 }
 
+/* General styles for the map legend container */
+.map-legend {
+  display: flex;
+  flex-direction: row; /* Stack items vertically */
+  align-items: flex-start; /* Align items to the left */
+  gap: 5%;
+  width: 60%;
+  background-color: transparent;
+}
+
+/* Style for each legend item */
+.legend-item {
+  display: flex;
+  align-items: center; /* Align items horizontally */
+  margin-bottom: 8px; /* Space between each item */
+}
+
+/* Style for the color box */
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  margin-right: 10px; /* Space between color box and label */
+}
+
+/* Style for the label text */
+.legend-label {
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
 
     </style>
 </head>
@@ -687,15 +718,34 @@ input[type="radio"]:nth-child(5):checked ~ .carousel-nav label:nth-child(5) {
             <!-- Resources Section -->
             <div class="resources-box">
                 <h2>Resources</h2>
+                <div class="map-legend">
+                    <div class="legend-item">
+                      <span class="legend-color" style="background-color: #a89ea0;"></span>
+                      <span class="legend-label">Drill and Standards</span>
+                    </div>
+                    <div class="legend-item">
+                      <span class="legend-color" style="background-color: #6bd7e5;"></span>
+                      <span class="legend-label">Fitness</span>
+                    </div>
+                    <div class="legend-item">
+                      <span class="legend-color" style="background-color: #3380d4;"></span>
+                      <span class="legend-label">Detachment Information</span>
+                    </div>
+                    <div class="legend-item">
+                      <span class="legend-color" style="background-color: #f4a97d;"></span>
+                      <span class="legend-label">Other</span>
+                    </div>
+                  </div>
+                  
                 <div class="card-container">
                     <!-- From Uiverse.io by kamehame-ha --> 
                 <div class="cards">
-                    <div class="card red">
+                    <div class="card det">
                             <a class="r_tip" href="https://drive.google.com/drive/folders/1KeAfomDUytdoyVec5zvCFwgwBsNq4lWe">
                                 Warrior Knowledge
                             </a>
                     </div>
-                    <div class="card blue">
+                    <div class="card det">
                         <br>
                         <br>
                             <a class="r_tip" href="https://det842.slack.com/archives/C087TCPQ1PY/p1740618327090409?thread_ts=1740617691.105129&cid=C087TCPQ1PY">
@@ -703,14 +753,64 @@ input[type="radio"]:nth-child(5):checked ~ .carousel-nav label:nth-child(5) {
                             </a>
                         </p>
                     </div>
-                    <div class="card green"> 
+                    <div class="card det"> 
                         <br>
                         <br>                   
                             <a class="r_tip" href="https://drive.google.com/file/d/1glvzrc_lyiqec2LkVYNAHn0FfAGa78-i/view?usp=drivesdk">
                             Cadet HandBook
                         </a></p>
                     </div>
-                    <div class="card four"> 
+
+                    <div class="card det"> 
+                        <br>
+                        <br>                   
+                            <a class="r_tip" href="https://docs.google.com/document/d/190h6Xa7weY-yfj8B52mQdFtnac6S7z9IECiqhMDp6m4/edit?tab=t.0">
+                            PA Photos
+                        </a></p>
+                    </div>
+                    <div class="card det"> 
+                        <br>
+                        <br>                   
+                            <a class="r_tip" href="https://docs.google.com/document/d/1vN6-EBpburqS458I_NbfNMnppbUdynXDYEHFZ2R7d3g/edit?usp=share_link">
+                            O-Plan
+                        </a></p>
+                    </div>
+                    <div class="card fitness"> 
+                        <br>
+                        <br>                   
+                            <a class="r_tip" href="https://docs.google.com/document/d/1vN6-EBpburqS458I_NbfNMnppbUdynXDYEHFZ2R7d3g/edit?usp=share_link">
+                            FSQ
+                        </a></p>
+                    </div>
+                    <div class="card fitness"> 
+                        <br>
+                        <br>                   
+                            <a class="r_tip" href="https://drive.google.com/file/d/1cfLp1soYvIzkgndN9Eot9Rny3E2pqoXU/view?usp=sharing">
+                            PT ScoreCard
+                        </a></p>
+                    </div>
+                    <div class="card drill"> 
+                        <br>
+                        <br>                   
+                            <a class="r_tip" href="https://www.178wing.ang.af.mil/Portals/69/documents/afh33-337.pdf?ver=2016-12-15-101008-313">
+                            Tongue and Quill
+                        </a></p>
+                    </div>
+                    <div class="card drill"> 
+                        <br>
+                        <br>                   
+                            <a class="r_tip" href="https://drive.google.com/file/d/100AjqdQjNLNnUnklSw7198M9qPBhUpPT/view?usp=sharing">
+                            BMT Manual
+                        </a></p>
+                    </div>
+                    <div class="card drill"> 
+                        <br>
+                        <br>                   
+                            <a class="r_tip" href="https://drive.google.com/file/d/1mgesz4NkT7A6ygfLTLznJvNTRVOM9AzK/view?usp=sharing">
+                            DAFPAM
+                        </a></p>
+                    </div>
+                    <div class="card drill"> 
                         <br>
                         <br>                   
                             <a class="r_tip" href="https://static.e-publishing.af.mil/production/1/af_a1/publication/dafi36-2903/dafi36-2903.pdf">
