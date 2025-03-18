@@ -97,24 +97,28 @@ h2 {
     gap: 10px;
     padding: 20px;
     border: 6px double #E27D3C;
+    overflow: hidden; /* Prevents content from overflowing */
+    width: 100%;
+    max-width: 900px; /* Adjust as needed */
 }
 
-/* Card container (keeps them in a row) */
 .card-container {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
+    flex-wrap: wrap; /* Ensures cards wrap instead of overflowing */
     justify-content: center;
-    transition: transform 0.5s ease-in-out;
-}
-
-/* From Uiverse.io by kamehame-ha */ 
-.cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 15px;
     width: 100%;
 }
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust min size */
+    gap: 15px;
+    width: 100%;
+    max-width: 900px; /* Ensures content stays inside */
+    padding: 10px;
+    justify-items: center; /* Centers cards within grid */
+}
+
 
 .cards .red {
   background-color: #f43f5e;
@@ -138,7 +142,8 @@ h2 {
   flex-direction: column;
   text-align: center;
   height: 100px;
-  width: 250px;
+  width: 100%; /* Make sure it adapts to the grid */
+  max-width: 220px; /* Prevents excessive stretching */
   border-radius: 10px;
   color: white;
   cursor: pointer;
@@ -228,21 +233,24 @@ progress[value]::-moz-progress-bar {
 
 label {
     --w: 150px; /* the width */
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
-    display: inline-block; /* Change from inline-grid to inline-block for better text wrapping */
-    place-content: center;
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: var(--w);
-    aspect-ratio: 1; /* Ensures the height is the same as the width */
+    height: var(--w); /* Ensures it remains a circle */
+    text-align: center;
+    background-color: transparent;
+    border-radius: 50%;
     position: relative;
-    overflow-wrap: break-word; /* Allows long words to break and wrap onto the next line */
-    word-wrap: break-word; /* For older support */
-    white-space: normal; /* Allow normal wrapping */
-    text-align: center; /* Centers text horizontally */
-    line-height: 1.2; /* Adjust line height if necessary for better vertical alignment */
-    background-color: transparent; /* Removed the square orange background */
-    border-radius: 10px; /* Rounded corners */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.2;
 }
+
 
 /* Tooltip Style */
 .item-hints .hint {
@@ -288,7 +296,201 @@ label {
     transform: translateY(-50%);
 }
 
+.current_events{
+    height: 300px; /* Adjusted height */
+    background-color: transparent;
+    border: 6px double #E27D3C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 30px;
+    overflow: visible;
+    }
+    input[type="radio"]:checked ~ .carousel-track {
+        transform: translateX(-100%); /* For the second image */
+    }
 
+    input[type="radio"]:checked + input[type="radio"]:checked ~ .carousel-track {
+        transform: translateX(-200%); /* For the third image */
+    }
+
+    /* Adjust the carousel navigation to show 3 images */
+    input[type="radio"] {
+        display: none;  /* Hide radio buttons */
+    }
+
+    /* Hide non-selected images */
+    input[type="radio"]:nth-child(1):checked ~ .carousel-track .carousel-item:nth-child(1) {
+        opacity: 1;
+    }
+
+    input[type="radio"]:nth-child(2):checked ~ .carousel-track .carousel-item:nth-child(2) {
+        opacity: 1;
+    }
+
+    input[type="radio"]:nth-child(3):checked ~ .carousel-track .carousel-item:nth-child(3) {
+        opacity: 1;
+    }
+
+/* Carousel */
+/* Carousel */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Each image within the carousel should be smaller */
+/* Carousel Track: Ensures enough space for 3 images */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;  /* Adjust to fit 3 images */
+}
+
+/* Each carousel item should take up 1/3 of the width */
+.carousel-item {
+    flex: 0 0 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    background-color: transparent; /* Temporary background color for debugging */
+}
+
+
+/* Image adjustments for proper display */
+.carousel-item img {
+    width: 100%;
+    height: 250px;
+}
+
+
+
+/* Flip-box effect */
+.flip-box {
+    width: 400px;
+    height: 250px;
+    background-color: transparent;
+    perspective: 1000px;  /* Enables 3D transformations */
+    display: inline-block;
+    margin: 10px;
+}
+
+.flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;  /* Ensures the 3D effect works */
+    transition: transform 0.6s;
+}
+
+.flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back face when flipped */
+}
+
+.flip-box-front {
+    background-color: transparent;
+}
+
+.flip-box-back {
+    vertical-align: baseline;
+    text-align: center;
+    color: #000;
+    background-color: rgb(238, 163, 110);
+    transform: rotateY(180deg);
+}
+
+
+/* Carousel buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+    background-color: #E27D3C;  /* Set the background color to orange */
+    color: white;
+    padding: 15px;  /* Increase padding for larger buttons */
+    cursor: pointer;
+    font-size: 2rem;  /* Increase button size */
+    border: none;  /* Remove default borders */
+    border-radius: 5px;  /* Optional: Make buttons rounded */
+    transform: translateY(-50%);  /* Center buttons vertically */
+}
+
+.prev {
+    left: -30px;  /* Place the previous button at the left edge of the container */
+}
+
+.next {
+    right: -30px;  /* Place the next button at the right edge of the container */
+}
+
+
+/* Navigation Dots */
+
+.carousel-nav {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    gap: 8px;
+}
+/*
+.carousel-nav label {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+#slide1:checked ~ .carousel-nav label:nth-child(1),
+#slide2:checked ~ .carousel-nav label:nth-child(2),
+#slide3:checked ~ .carousel-nav label:nth-child(3),
+#slide4:checked ~ .carousel-nav label:nth-child(4),
+#slide5:checked ~ .carousel-nav label:nth-child(5) {
+    opacity: 1;
+}
+
+*/
+
+/* Carousel Transition (using the checked radio buttons) */
+input[type="radio"]:nth-child(1):checked ~ .carousel .carousel-track {
+    transform: translateX(0);
+}
+
+input[type="radio"]:nth-child(2):checked ~ .carousel .carousel-track {
+    transform: translateX(-100%);
+}
+
+input[type="radio"]:nth-child(3):checked ~ .carousel .carousel-track {
+    transform: translateX(-200%);
+}
+
+input[type="radio"]:nth-child(4):checked ~ .carousel .carousel-track {
+    transform: translateX(-300%);
+}
+
+input[type="radio"]:nth-child(5):checked ~ .carousel .carousel-track {
+    transform: translateX(-400%);
+}
+input[type="radio"]:nth-child(1):checked ~ .carousel-nav label:nth-child(1),
+input[type="radio"]:nth-child(2):checked ~ .carousel-nav label:nth-child(2),
+input[type="radio"]:nth-child(3):checked ~ .carousel-nav label:nth-child(3),
+input[type="radio"]:nth-child(4):checked ~ .carousel-nav label:nth-child(4),
+input[type="radio"]:nth-child(5):checked ~ .carousel-nav label:nth-child(5) {
+    opacity: 1;
+}
 
 
     </style>
@@ -348,8 +550,136 @@ label {
 
         <!-- Right Column -->
         <div class="right-column">
-            <div class="empty">
-                <h2>To Be Created Later</h2>
+            <div class="current_events">
+                <input type="radio" name="carousel" id="slide1" checked>
+                <input type="radio" name="carousel" id="slide2">
+                <input type="radio" name="carousel" id="slide3">
+                <input type="radio" name="carousel" id="slide4">
+                <input type="radio" name="carousel" id="slide5">
+            
+                <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+
+            
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <div class="carousel-item">
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                      <img src="/assets/battleofthebomb.png" alt="Image 1"> 
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <p>
+                                            EVENT: Battle of the Bomb
+                                            <br>
+                                            <br>
+                                            DATE: Saturday, 28 March 2025
+                                            <br>
+                                            <br>
+                                            LOCATION: University of North Texas
+                                            <br>
+                                            <br>
+                                            PURPOSE: To promote morale and cameraderie between Texas detachments. 
+                                            The event is comprised of various sports competitions.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                        <img src="/assets/beast.png" alt="Image 1"> 
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <p>
+                                            EVENT: PACER FORGE
+                                            <br>
+                                            <br>
+                                            DATE: Saturday, 05 April 2025
+                                            <br>
+                                            <br>
+                                            LOCATION: JBSA-Lackland Chapman Training Annex
+                                            <br>
+                                            <br>
+                                            PURPOSE: To provide Basic Cadet Leaders from across the southwest region with unique hands-on training delivered by
+                                            subject matter experts. Focusing on key AFROTC Samples of Behavior and 
+                                            developing the Warrior Ethos in the next generation of officers.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                    <img src="/assets/ftpsp25.png" alt="Image 1"> 
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <p>
+                                            BCL Cadets practice marching during BCL Leadership Laboratory.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                    <img src="/assets/leadlabsp25.png" alt="Image 1"> 
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <p>
+                                            Lietenant General Brian S. Robinson and Chief Master Sergeant Chad Bickley spoke to Detachment 842 cadets during Leadership Laboratory.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                    <img src="/assets/leadlabsp25two.png" alt="Image 1"> 
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <p>
+                                            BCL Cadets prepare to execute building entry procedures before Leadership Laboratory.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                    <img src="/assets/leadlabsp25.jpg" alt="Image 1"> 
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <p>
+                                            C/Peterson briefed the Cadet Wing on a current event.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+            
+                <!-- Navigation Dots -->
+                <div class="carousel-nav">
+                    <label for="slide1"></label>
+                    <label for="slide2"></label>
+                    <label for="slide3"></label>
+                    <label for="slide4"></label>
+                    <label for="slide5"></label>
+                </div>
             </div>
 
             <!-- Resources Section -->
@@ -394,3 +724,39 @@ label {
     </div>
 </body>
 </html>
+
+<script>
+    document.querySelectorAll('a').forEach(link => {
+    link.setAttribute('target', '_blank');
+});
+    // Get references to the radio buttons and the buttons
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    
+    // Get all radio buttons (representing slides)
+    const slides = document.querySelectorAll('input[name="carousel"]');
+    
+    let currentIndex = 0;
+const carouselItems = document.querySelectorAll('.carousel-item');
+const totalItems = carouselItems.length;
+const carouselTrack = document.querySelector('.carousel-track');
+
+const itemWidth = carouselItems[0].offsetWidth; // Get the width of a single item
+
+function nextSlide() {
+    if (currentIndex < totalItems - 2) {
+        currentIndex++;
+        carouselTrack.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+    }
+}
+
+function prevSlide() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        carouselTrack.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+    }
+}
+
+</script>
+
+
