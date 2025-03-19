@@ -1,0 +1,518 @@
+
+body {
+    background-color: #06233f;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 300%;
+    text-align: center;
+    color: #E27D3C;
+}
+
+h2 {
+    text-align: center;
+    font-size: 150%;
+}
+
+/* Layout container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+/* Left column */
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* space between the two boxes */
+    width: 25%;
+}
+
+/* Tasks Box - Updated with light orange background */
+.tasksbox {
+    background-color: transparent; /* Light orange background */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 6px double #E27D3C;
+}
+.tasks{
+    color: #a3e3f3;
+}
+
+/* Progress Box */
+.progressbox {
+    align-content: center;
+    background-color: transparent;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 6px double #E27D3C;
+}
+
+.progressbox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;  /* This centers the progress circles horizontally */
+    justify-content: center; /* This centers the progress circles vertically */
+    padding: 20px;
+    box-sizing: border-box;
+    border: 6px double #E27D3C;
+}
+
+/* Right column */
+.right-column {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Empty div */
+.empty {
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px dashed #E27D3C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Resources section with border */
+.resources-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border: 6px double #E27D3C;
+    overflow: hidden; /* Prevents content from overflowing */
+    width: 100%;
+    max-width: 900px; /* Adjust as needed */
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures cards wrap instead of overflowing */
+    justify-content: center;
+    width: 100%;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust min size */
+    gap: 15px;
+    width: 100%;
+    max-width: 900px; /* Ensures content stays inside */
+    padding: 10px;
+    justify-items: center; /* Centers cards within grid */
+}
+
+
+.cards .drill {
+  background-color: #a89ea0;
+}
+
+.cards .fitness {
+  background-color: #6bd7e5;
+}
+
+.cards .det {
+  background-color: #3380d4;
+}
+.cards .other {
+  background-color: #f4a97d;
+}
+
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100px;
+  width: 100%; /* Make sure it adapts to the grid */
+  max-width: 220px; /* Prevents excessive stretching */
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+/* Ensure all links inside the cards are properly centered */
+.r_tip {
+    font-size: 1em;
+    font-weight: 700;
+    color: white;
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Makes sure it fills the card */
+    width: 100%; /* Ensures full width */
+    text-align: center; /* Just in case */
+}
+
+
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+/* Progress bar */
+progress[value] {
+    --color:  /* the progress color */
+        /* if < 30% "red" */
+        linear-gradient(red    0 0) 0 /calc(var(--w)*.3 - 100%) 1px,
+        /* if < 60% "orange" */
+        linear-gradient(orange 0 0) 0 /calc(var(--w)*.6 - 100%) 1px,
+        /* else "green" */
+        green;
+    --background: lightgrey; /* the background color */
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--background);
+    transform: rotate(-90deg);
+    -webkit-mask: radial-gradient(#0000 59%,#000 60% 70%,#0000 71%);
+}
+
+progress[value]::-webkit-progress-bar {
+    background: var(--background);
+}
+
+progress[value]::-webkit-progress-value {
+    background: var(--color);
+}
+
+progress[value]::-moz-progress-bar {
+    background: var(--color);
+}
+
+label {
+    --w: 150px; /* the width */
+    font-size: 18px;
+    font-weight: bold;
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: var(--w);
+    height: var(--w); /* Ensures it remains a circle */
+    text-align: center;
+    background-color: transparent;
+    border-radius: 50%;
+    position: relative;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.2;
+}
+
+
+/* Tooltip Style */
+.item-hints .hint {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-hints .hint .hint-content {
+    width: 180px;  /* Width of the tooltip */
+    position: absolute;
+    z-index: 5;
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    color: #fff;
+    background-color: #D64D1E;  /* Burnt orange color */
+    border-radius: 5px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    text-align: center;
+    top: 50%;
+    left: 100%; /* Positions the tooltip to the right of the label */
+    margin-left: 10px;
+    transform: translateY(-50%);
+}
+
+.item-hints .hint:hover .hint-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.item-hints .hint .hint-content::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 5px 5px 5px 0;
+    border-color: transparent #D64D1E transparent transparent; /* Arrow pointing towards the label */
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    transform: translateY(-50%);
+}
+
+.current_events{
+    height: 300px; /* Adjusted height */
+    background-color: transparent;
+    border: 6px double #E27D3C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0 30px;
+    overflow: visible;
+    }
+    input[type="radio"]:checked ~ .carousel-track {
+        transform: translateX(-100%); /* For the second image */
+    }
+
+    input[type="radio"]:checked + input[type="radio"]:checked ~ .carousel-track {
+        transform: translateX(-200%); /* For the third image */
+    }
+
+    /* Adjust the carousel navigation to show 3 images */
+    input[type="radio"] {
+        display: none;  /* Hide radio buttons */
+    }
+
+    /* Hide non-selected images */
+    input[type="radio"]:nth-child(1):checked ~ .carousel-track .carousel-item:nth-child(1) {
+        opacity: 1;
+    }
+
+    input[type="radio"]:nth-child(2):checked ~ .carousel-track .carousel-item:nth-child(2) {
+        opacity: 1;
+    }
+
+    input[type="radio"]:nth-child(3):checked ~ .carousel-track .carousel-item:nth-child(3) {
+        opacity: 1;
+    }
+
+/* Carousel */
+/* Carousel */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Each image within the carousel should be smaller */
+/* Carousel Track: Ensures enough space for 3 images */
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;  /* Adjust to fit 3 images */
+}
+
+/* Each carousel item should take up 1/3 of the width */
+.carousel-item {
+    flex: 0 0 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    background-color: transparent; /* Temporary background color for debugging */
+}
+
+
+/* Image adjustments for proper display */
+.carousel-item img {
+    width: 100%;
+    height: 250px;
+}
+
+
+
+/* Flip-box effect */
+.flip-box {
+    width: 400px;
+    height: 250px;
+    background-color: transparent;
+    perspective: 1000px;  /* Enables 3D transformations */
+    display: inline-block;
+    margin: 10px;
+}
+
+.flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;  /* Ensures the 3D effect works */
+    transition: transform 0.6s;
+}
+
+.flip-box:hover .flip-box-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back face when flipped */
+}
+
+.flip-box-front {
+    background-color: transparent;
+}
+
+.flip-box-back {
+    vertical-align: baseline;
+    text-align: center;
+    color: #000;
+    background-color: rgb(238, 163, 110);
+    transform: rotateY(180deg);
+}
+
+
+/* Carousel buttons */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    z-index: 4;
+    background-color: #E27D3C;  /* Set the background color to orange */
+    color: white;
+    padding: 15px;  /* Increase padding for larger buttons */
+    cursor: pointer;
+    font-size: 2rem;  /* Increase button size */
+    border: none;  /* Remove default borders */
+    border-radius: 5px;  /* Optional: Make buttons rounded */
+    transform: translateY(-50%);  /* Center buttons vertically */
+}
+
+.prev {
+    left: -30px;  /* Place the previous button at the left edge of the container */
+}
+
+.next {
+    right: -30px;  /* Place the next button at the right edge of the container */
+}
+
+
+/* Navigation Dots */
+
+.carousel-nav {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    gap: 8px;
+}
+/*
+.carousel-nav label {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+#slide1:checked ~ .carousel-nav label:nth-child(1),
+#slide2:checked ~ .carousel-nav label:nth-child(2),
+#slide3:checked ~ .carousel-nav label:nth-child(3),
+#slide4:checked ~ .carousel-nav label:nth-child(4),
+#slide5:checked ~ .carousel-nav label:nth-child(5) {
+    opacity: 1;
+}
+
+*/
+
+/* Carousel Transition (using the checked radio buttons) */
+input[type="radio"]:nth-child(1):checked ~ .carousel .carousel-track {
+    transform: translateX(0);
+}
+
+input[type="radio"]:nth-child(2):checked ~ .carousel .carousel-track {
+    transform: translateX(-100%);
+}
+
+input[type="radio"]:nth-child(3):checked ~ .carousel .carousel-track {
+    transform: translateX(-200%);
+}
+
+input[type="radio"]:nth-child(4):checked ~ .carousel .carousel-track {
+    transform: translateX(-300%);
+}
+
+input[type="radio"]:nth-child(5):checked ~ .carousel .carousel-track {
+    transform: translateX(-400%);
+}
+input[type="radio"]:nth-child(1):checked ~ .carousel-nav label:nth-child(1),
+input[type="radio"]:nth-child(2):checked ~ .carousel-nav label:nth-child(2),
+input[type="radio"]:nth-child(3):checked ~ .carousel-nav label:nth-child(3),
+input[type="radio"]:nth-child(4):checked ~ .carousel-nav label:nth-child(4),
+input[type="radio"]:nth-child(5):checked ~ .carousel-nav label:nth-child(5) {
+    opacity: 1;
+}
+
+/* General styles for the map legend container */
+.map-legend {
+  display: flex;
+  flex-direction: row; /* Stack items vertically */
+  align-items: flex-start; /* Align items to the left */
+  gap: 5%;
+  width: 60%;
+  background-color: transparent;
+}
+
+/* Style for each legend item */
+.legend-item {
+  display: flex;
+  align-items: center; /* Align items horizontally */
+  margin-bottom: 8px; /* Space between each item */
+}
+
+/* Style for the color box */
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  margin-right: 10px; /* Space between color box and label */
+}
+
+/* Style for the label text */
+.legend-label {
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
