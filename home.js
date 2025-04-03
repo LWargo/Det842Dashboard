@@ -51,3 +51,26 @@ function prevSlide() {
         updateProgressBarColor(progress); // Initially set color
         progress.addEventListener('input', () => updateProgressBarColor(progress)); // Update on user input
     });
+
+const clubContainer = document.querySelector(".clubs");
+const prevBtn = document.querySelector(".cl_prev");
+const nextBtn = document.querySelector(".cl_next");
+// Ensure the clubs container starts at the first club
+document.addEventListener("DOMContentLoaded", () => {
+    clubContainer.scrollLeft = 0; // Reset scroll position to Club 1
+});
+
+const scrollAmount = 350; // Adjust scroll distance per click
+
+function scrollClubNext() {
+    const maxScroll = clubContainer.scrollWidth - clubContainer.clientWidth;
+    if (clubContainer.scrollLeft < maxScroll) {
+        clubContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+}
+
+function scrollClubPrev() {
+    if (clubContainer.scrollLeft > -650) {
+        clubContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    }
+}

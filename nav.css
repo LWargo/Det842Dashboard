@@ -1,0 +1,117 @@
+
+body {
+    background-color: #06233f;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+h1 {
+    font-size: 300%;
+    text-align: center;
+    color: #E27D3C;
+}
+
+h2 {
+    text-align: center;
+    font-size: 150%;
+}
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px; /* Optional: Adjust spacing */
+} 
+
+.nav{
+    text-align: center;
+    width: 10em;
+    position: relative;
+    height: 3.5em;
+    border: 3px ridge #E27D3C;
+    background-color: transparent;
+    color: white;
+    transition: 1s;
+    border-radius: 0.3em;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .nav::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #06233f;
+    transition: 0.5s;
+    transform-origin: center;
+  }
+  
+  .nav::before {
+    content: "";
+    transform-origin: center;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    width: 95%;
+    height: 40%;
+    background-color: #06233f;
+    transition: 0.5s;
+  }
+  
+.nav:hover::before, .nav:hover::after {
+    transform: scale(0)
+  }
+  
+  .nav:hover {
+    box-shadow: inset 0px 0px 25px #E27D3C;
+}
+.nav-container {
+    display: flex;
+    justify-content: center; /* Aligns buttons in the center */
+    gap: 10px; /* Adds space between buttons */
+}
+
+
+/* Hide the submenu by default */
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #06233f;
+  border: 1px solid #E27D3C;
+  border-radius: 5px;
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+  width: 150px; /* Adjust as needed */
+}
+
+/* Ensure nav-item is positioned properly */
+.nav-item {
+  position: relative;
+  display: inline-block;
+}
+
+/* Show submenu when hovering over .nav-item */
+.nav-item:hover .submenu {
+  display: block;
+  z-index: 2;
+}
+
+/* Style submenu links */
+.submenu-item {
+  padding: 5px 0;
+}
+
+.submenu-link {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  display: block;
+}
+
+.submenu-link:hover {
+  background-color: #E27D3C;
+}
