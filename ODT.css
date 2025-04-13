@@ -1,16 +1,19 @@
 .box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 20px;
-    border: none;
-    overflow: hidden; /* Prevents content from overflowing */
-    width: 100%;
-    max-width: 900px; /* Adjust as needed */
-    margin: 0 auto; /* Centers the box horizontally */
+  display: flex;
+  flex-direction: row;         /* Align cards horizontally */
+  flex-wrap: wrap;             /* Wrap to the next row when out of room */
+  justify-content: center;     /* Center the cards horizontally */
+  align-items: flex-start;     /* Align cards to the top */
+  gap: 20px;                   /* Space between cards */
+  
+  padding: 20px;
+  border: none;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;           /* You can adjust this as needed */
+  margin: 0 auto;
 }
-/* From Uiverse.io by MuhammadHasann */ 
+
 .card {
     --white: hsl(0, 0%, 83%);
     --black: hsl(240, 15%, 9%);
