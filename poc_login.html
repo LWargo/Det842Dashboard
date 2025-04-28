@@ -76,6 +76,7 @@
                 const enteredPassword = passwordInput.value.trim(); // Get password input and trim spaces
                 if (enteredPassword === "byexample") {
                  //   alert("Login Attempt Successful");
+                 document.cookie = "loggedIn=true; max-age=" + 60 * 60 * 24 * 7 + "; path=/";
                     window.location.href = "odt.html"; // Redirect correctly
                 } else {
                     alert("Invalid Credentials");

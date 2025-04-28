@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detachment 842</title>
+
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+    <div class="header-container">
+        <h1>Detachment 842</h1>
+
+    </div>
+
+    <div class="container">
+        <!-- Left Column (Tasks and Progress) -->
+        <div class="left-column">
+            <!-- Tasks Box -->
+            <div class="tasksbox">
+                <h2>NSOP Information</h2>
+                <ul>
+                    <li> Date: August XX, 2025</li>
+                    <li> Time: 0700-1500 </li>
+                    <li> Location: Graduate Student Research Building, UTSA Main Campus </li>
+                    <li> Address:  
+                        <br>
+                        1 UTSA Circle,
+                        <br>
+                        GSR Building 2.116
+                        <br>
+                        San Antonio, TX 78249 
+                    </li>
+                    <li> Attire: Business Casual</li>
+
+                </ul>
+            </div>
+            <div class="tasksbox">
+                <h2>What to Bring:</h2>
+                <ul>
+                    <li> $XX Landing Fee (Cash or Venmo )</li>
+                    <li> SAT/ACT Scores (Optional) </li>
+                    <li> JROTC Certification (If Applicable) </li>
+                    <li> Prior Service Documents (If Applicable) </li>
+                    <li>Copies of Birth Certificate</li>
+
+                </ul>
+            </div>
+            <div class="tasksbox">
+                <h2>Tasks</h2>
+                <ul>
+                    <li><a class="tasks" href="https://docs.google.com/forms/d/e/1FAIpQLScFGrlJernWmn8TfPwBfb1c001pcjKqGZkogi9IZZ0-JTDkLA/viewform?usp=sharing">Absence Form</a></li>
+                    <li><a class="tasks" href="https://forms.gle/TjWPCrFE2FBQtByd8">IG Submission Form</a></li>
+                    <li><a class="tasks" href="https://docs.google.com/forms/d/e/1FAIpQLSeklNKJr0BBLSnsDw-1hQeNVtLzF0tNGez4zorfLNFYfTuTdg/viewform">LRS Form</a></li>
+                    <li><a class="tasks" href="https://forms.gle/3F2C6XepoppXzGqh6">Deltas 2-5 Third PT Form</a></li>
+                    <li><a class="tasks" href="https://forms.gle/KSQBmDn3EYbjZkPm9">Mental Health Check</a></li>
+                </ul>
+            </div>
+
+            <!-- Calendar-->
+            <div class="calendar">
+                <header>
+                  <div class="nav-buttons">
+                    <button id="prev">&#8592;</button>
+                    <button id="next" >&#8594;</button>
+                  </div>
+                  <h2 id="month-year">Loading...</h2>
+                </header>
+                <div class="weekdays">
+                  <div>Sun</div>
+                  <div>Mon</div>
+                  <div>Tue</div>
+                  <div>Wed</div>
+                  <div>Thu</div>
+                  <div>Fri</div>
+                  <div>Sat</div>
+                </div>
+                <div class="days" id="calendar-days">
+                  <!-- Days go here -->
+                   
+                </div>
+              </div>
+           
+
+            
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <div class="current_events">
+                <input type="radio" name="carousel" id="slide1" checked>
+                <input type="radio" name="carousel" id="slide2">
+                <input type="radio" name="carousel" id="slide3">
+                <input type="radio" name="carousel" id="slide4">
+                <input type="radio" name="carousel" id="slide5">
+            
+                <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+
+            
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <div class="carousel-item">
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                      <img src="assets/battleoftheflowers.jpg" alt="Image 1"> 
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <p>
+                                            EVENT: Battle of the Flowers
+                                            <br>
+                                            <br>
+                                            DATE: Friday, 2 May 2025
+                                            <br>
+                                            <br>
+                                            LOCATION: Downtown San Antonio
+                                            <br>
+                                            <br>
+                                            PURPOSE: The Battle of the Flowers Parade is a local San Antonio event that honors the heroes of the Alamo.
+                                            Detachment 842 will march in the parade to build relations with the city of San Antonio, 
+                                            and show the nation that the future of the U.S. Air Force from Texas is looking  bright.
+                                            
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                        <img src="assets/beast.png" alt="Image 1"> 
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <p>
+                                            EVENT: PACER FORGE
+                                            <br>
+                                            <br>
+                                            DATE: Saturday, 05 April 2025
+                                            <br>
+                                            <br>
+                                            LOCATION: JBSA-Lackland Chapman Training Annex
+                                            <br>
+                                            <br>
+                                            PURPOSE: To provide Basic Cadet Leaders from across the southwest region with unique hands-on training delivered by
+                                            subject matter experts. Focusing on key AFROTC Samples of Behavior and 
+                                            developing the Warrior Ethos in the next generation of officers.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                    <img src="assets/cstafftakeover.JPG" alt="Image 1"> 
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <p>
+                                            Command Staff Takeover Cadets overseeing a great Leadership Laboratory!
+                                            <br>
+                                            <br>
+                                            (L to R) Wing Commander: C/Pena, Deputy Wing Commander: C/Fuller, Inspector General: C/Sowerbutts,
+                                            Chief Innovation Officer: C/Herd, Chief of Staff: C/Trevino, B. (Operations Group Commander: C/Rutiaga not pictured)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                    <img src="assets/leadlabsp25.png" alt="Image 1"> 
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <p>
+                                            Lietenant General Brian S. Robinson and Chief Master Sergeant Chad Bickley spoke to Detachment 842 cadets during Leadership Laboratory.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                    <img src="assets/leadlabsp25two.png" alt="Image 1"> 
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <p>
+                                            BCL Cadets prepare to execute building entry procedures before Leadership Laboratory.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="flip-box">
+                                <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                    <img src="assets/botb2025.jpg" alt="Image 1"> 
+                                    </div>
+                                    <div class="flip-box-back">
+                                        <p>
+                                            C/Loftus makes a great serve for the UTSA Volleyball Team during the UTSA vs OU match at Battle of the Bomb! 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+            
+                <!-- Navigation Dots -->
+                <div class="carousel-nav">
+                    
+                    <label for="slide1"></label>
+                    <label for="slide2"></label>
+                    <label for="slide3"></label>
+                    <label for="slide4"></label>
+                    <label for="slide5"></label>
+                </div>
+            </div>
+           
+               
+            <div class="clubs-container">
+                <button class="club-button cl_prev" onclick="scrollClubPrev()">&#10094;</button>
+                
+                <div class="clubs">
+                    <div class="club-rect aas">
+                        <img src="clubs/aas poster.jpg" alt="Arnold Air Soceity" height="500px">
+                    </div>
+                    <div class="club-rect">
+                        <img src="clubs/I5 poster.PNG" alt="I5" height="500px">
+                    </div>
+                    <div class="club-rect" style="background-color: lightblue; color: darkblue;" ">
+                        <img src="clubs/IMG_1010.png" alt="Honor Guard" height="500px">
+                    </div>
+                    <div class="club-rect" style="background-color: silver; color: black;">
+
+                       <img src="clubs/IMG_1018.PNG" alt="Silver Wings" height="500px"> 
+                    </div>
+                    <div class="club-rect" style="background-color: lightgreen; color: navy;" ">
+                        <p> RoadRunners Run Club:
+                            <br>
+                             Coming Soon
+                        </p>
+                    </div>
+
+                </div>
+            
+                <button class="club-button cl_next" onclick="scrollClubNext()">&#10095;</button>
+            </div>
+            
+                
+            
+
+            
+        </div>
+    </div>
+    <script src="home.js"></script>
+    <script src="calendar.js"></script>
+</body>
+</html>
+
+

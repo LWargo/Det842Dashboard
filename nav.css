@@ -86,6 +86,7 @@ h2 {
   padding: 10px;
   margin: 0;
   width: 150px; /* Adjust as needed */
+  z-index: 99;
 }
 
 /* Ensure nav-item is positioned properly */
@@ -97,7 +98,8 @@ h2 {
 /* Show submenu when hovering over .nav-item */
 .nav-item:hover .submenu {
   display: block;
-  z-index: 2;
+  z-index: 99;
+  position: absolute;
 }
 
 /* Style submenu links */

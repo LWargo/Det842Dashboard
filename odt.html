@@ -19,7 +19,9 @@
             <div class="nav-item">
                 <button class="nav">POC Access</button>
                 <div class="submenu">
-                    <div class="submenu-item"><a href="poc_login.html" class="submenu-link">ODT Continuity</a></div>
+                    <div class="submenu-item"><a href="odt.html" class="submenu-link">ODT Continuity</a></div>
+                    <div class="submenu-item"><a href="pocjob.html" class="submenu-link">POC Job Continuity</a></div>
+
                 </div>
             </div>
         </div>
@@ -39,7 +41,7 @@
         <div class="card" onclick="window.location.href='botb.html' ">
 
             <div class="card_container" >
-                <img src="" >
+                <img src="assets/IMG_9587.png" style="height: 100%;" >
             </div>
             <div class="sub-card named">
                 <span class="text_span"> Battle of the Bomb </span>
@@ -48,7 +50,7 @@
         <div class="card" onclick="window.location.href='beast.html' ">
 
             <div class="card_container" >
-                <img src="assets/beast.png" alt="Training at BEAST/PACER FORGE">
+                <img src="assets/IMG_9585.png" alt="Training at BEAST/PACER FORGE" style="height: 100%;">
             </div>
             <div class="sub-card named">
                 <span class="text_span">BEAST/PACER FORGE</span>
@@ -75,7 +77,7 @@
         <div class="card" onclick="window.location.href='commissioning.html' ">
 
             <div class="card_container" >
-                <img src="" >
+                <img src="assets/IMG_2466.JPG" style="height: 100%;">
             </div>
             <div class="sub-card named">
                 <span class="text_span"> Commissioning Ceremony </span>
@@ -94,7 +96,7 @@
         <div class="card" onclick="window.location.href='lrc.html' ">
 
             <div class="card_container" >
-                <img src="" >
+                <img src="assets/IMG_9577.jpg" style="height: 100%;">
             </div>
             <div class="sub-card named">
                 <span class="text_span"> LRCs </span>
@@ -104,7 +106,7 @@
         <div class="card" onclick="window.location.href='nsopcontinuity.html' ">
 
             <div class="card_container" >
-                <img src="" >
+                <img src="" style="height: 100%;" >
             </div>
             <div class="sub-card named">
                 <span class="text_span"> NSOP </span>
@@ -114,7 +116,7 @@
         <div class="card" onclick="window.location.href='passinreview.html' ">
 
             <div class="card_container" >
-                <img src="" >
+                <img src="assets/IMG_8775.JPG" style="height: 100%;">
             </div>
             <div class="sub-card named">
                 <span class="text_span">Pass In Review</span>
@@ -123,7 +125,7 @@
         <div class="card" onclick="window.location.href='thunderdash.html' ">
 
             <div class="card_container" >
-                <img src="" >
+                <img src="assets/IMG_9576.jpg" style="height: 100%;">
             </div>
             <div class="sub-card named">
                 <span class="text_span">Thunderdash</span>
@@ -134,3 +136,13 @@
 
     
     </body>
+    <script>
+        // Redirect to login if not logged in
+        function isLoggedIn() {
+          return document.cookie.includes("loggedIn=true");
+        }
+      
+        if (!isLoggedIn()) {
+            window.location.href = "poc_login.html"; // Change if your login page has a different name
+        }
+      </script>

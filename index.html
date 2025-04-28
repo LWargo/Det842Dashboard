@@ -73,11 +73,17 @@
             const passwordInput = document.getElementById('password');
 
             submitButton.addEventListener('click', function() {
+                event.preventDefault();
                 const enteredPassword = passwordInput.value.trim(); // Get password input and trim spaces
                 if (enteredPassword === "bestinblue") {
                  //   alert("Login Attempt Successful");
                     window.location.href = "home.html"; // Redirect correctly
-                } else {
+                } 
+                else if (enteredPassword === "nsop") {
+                 //   alert("Login Attempt Successful");
+                    window.location.href = "nsop.html"; // Redirect correctly
+                }
+                else {
                     alert("Invalid Credentials");
                 }
             });
