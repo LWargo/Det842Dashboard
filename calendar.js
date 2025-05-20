@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
         { date: '2025-04-17', title: 'ORIs/FDEs' },
         { date: '2025-04-22', title: 'Spec War PT' },
         { date: '2025-04-24', title: 'Spec War PT' },
+        { date: '2025-08-21', title: 'NSOP' },
+        { date: '2025-08-22', title: 'NSOP' },
 
         // Add more events as needed
     ];
